@@ -1,8 +1,6 @@
 <?php
 session_start();
-require 'files/functions/db_connect.php';
-include "files/winkelmandInit.php";
-include "functions/winkelmandVerschil.php";
+require 'files/includes/db_connect.php';
 
 $cart_products = initCart($conn);
 
@@ -29,15 +27,7 @@ if ($pagina == "home") {
 }
 ?>
     <div id="body">
-		<?php
-		if ($pagina == "home" || $pagina == "signup" || $pagina == "checkout" || $pagina == "account" || $pagina == "orders" || $pagina == "bedankt" || $pagina == "spaarpunten") {
-		} else {
-
-			echo "<div id='winkelmandje'>";
-			include 'files/winkelmandView.php';
-
-			echo "</div>";
-		}
+	    <?php
 		// Als $pagina niet geinitialiseerd is, gaat hij tergu naar home. Anders geeft hij de $pagina weer.
 		if (empty($pagina)) {
 			header("Location: http://projecthanze.com/home");
