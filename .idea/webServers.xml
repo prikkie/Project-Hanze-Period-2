@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="fb913cce-2f53-49ab-9654-64ae35afcd0c" name="Projecthanze" url="http://ftp.projecthanze.com">
+        <fileTransfer host="ftp.projecthanze.com" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" accurateTimestamps="ALWAYS" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
