@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="Projecthanze">
+  <component name="PublishConfigData" autoUpload="Always" serverName="Projecthanze" uploadOnCheckin="fb913cce-2f53-49ab-9654-64ae35afcd0c">
     <serverData>
       <paths name="Projecthanze">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
     </serverData>
+    <option name="myUploadOnCheckinName" value="Projecthanze" />
+    <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>
