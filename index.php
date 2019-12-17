@@ -11,19 +11,12 @@ if (isset($_GET['nav']) && file_exists('files/' . $_GET['nav'] . '.php')) {
 	header("Location: http://projecthanze.com/home");
 }
 
-echo "<div id='header'>";
-include 'files/header.php';
-echo "</div>";
 
-if ($pagina == "home") {
-} else {
-
+if ($pagina != "home") {
 	echo "<div id='menu'>";
 	include 'files/menu.php';
 
 	echo "</div>";
-
-
 }
 ?>
     <div id="body">
@@ -39,7 +32,4 @@ if ($pagina == "home") {
 <?php
 
 
-?>
-    <div class="footer"><?php include 'files/footer.php'; ?></div>
-<?php
 ?>
