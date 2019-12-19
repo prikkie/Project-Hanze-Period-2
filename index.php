@@ -1,8 +1,7 @@
 <?php
 session_start();
-require 'files/includes/db_connect.php';
 
-$cart_products = initCart($conn);
+require 'files/includes/db_connect.php';
 
 //Kijkt welke pagina opgevraagd is, kijkt of het bestaat, veranderd $pagina. Bestaat deze niet? Gaat de gebruiker naar de home pagina
 if (isset($_GET['nav']) && file_exists('files/' . $_GET['nav'] . '.php')) {
@@ -10,17 +9,22 @@ if (isset($_GET['nav']) && file_exists('files/' . $_GET['nav'] . '.php')) {
 } else {
 	header("Location: http://projecthanze.com/home");
 }
+echo "<div id='header'>";
+include 'files/header.php';
+echo "</div>";
 
+if ($pagina == "home") {
+} else {
 
-if ($pagina != "home") {
 	echo "<div id='menu'>";
 	include 'files/menu.php';
-
 	echo "</div>";
+
+
 }
 ?>
     <div id="body">
-	    <?php
+		<?php
 		// Als $pagina niet geinitialiseerd is, gaat hij tergu naar home. Anders geeft hij de $pagina weer.
 		if (empty($pagina)) {
 			header("Location: http://projecthanze.com/home");
@@ -29,7 +33,7 @@ if ($pagina != "home") {
 		}
 		?>
     </div>
+
+    <div id="footer"><?php include 'files/footer.php'; ?></div>
 <?php
-
-
 ?>
