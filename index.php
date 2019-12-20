@@ -15,10 +15,10 @@ if (isset($_GET['nav']) && file_exists('files/' . $_GET['nav'] . '.php')) {
 </div>
 
 <div id='menu'>
-		<?
-		include 'files/menu.php';
-		?>
-	</div>
+	<?
+	include 'files/menu.php';
+	?>
+</div>
 
 <div id="body">
 	<?
@@ -27,6 +27,15 @@ if (isset($_GET['nav']) && file_exists('files/' . $_GET['nav'] . '.php')) {
 		header("Location: http://projecthanze.com/home");
 	} else {
 		include("files/" . $pagina . ".php");
+		if ($pagina != home) {
+			?>
+            <div id="shoppingcart" align="right">
+				<?
+				include "files/shoppingcart.php";
+				?>
+            </div>
+			<?
+		}
 	}
 	?>
 </div>
