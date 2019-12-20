@@ -13,18 +13,13 @@ if (isset($_GET['nav']) && file_exists('files/' . $_GET['nav'] . '.php')) {
 	include 'files/header.php';
 	?>
 </div>
-<?
-if ($pagina == "home") {
-} else {
-	?>
-	<div id='menu'>
+
+<div id='menu'>
 		<?
 		include 'files/menu.php';
 		?>
 	</div>
-	<?
-}
-?>
+
 <div id="body">
 	<?
 	// Als $pagina niet geinitialiseerd is, gaat hij tergu naar home. Anders geeft hij de $pagina weer.
