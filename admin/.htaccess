@@ -1,0 +1,20 @@
+RewriteEngine on
+
+RewriteRule ^([^/.]+)/?$ index.php?nav=$1
+RewriteRule ^users/c/([^/.]+)/?$ index.php?nav=users&cid=$1 [L]
+RewriteRule ^users/d/([^/.]+)/?$ index.php?nav=users&did=$1 [L]
+RewriteRule ^users/s/([^/.]+)/?$ index.php?nav=users&sid=$1 [L]
+
+RewriteRule ^punten/d/([^/.]+)/?$ index.php?nav=punten&did=$1 [L]
+RewriteRule ^punten/s/([^/.]+)/?$ index.php?nav=punten&sid=$1 [L]
+
+RewriteRule ^gebruikers/d/([^/.]+)/?$ index.php?nav=gebruikers&did=$1 [L]
+RewriteRule ^gebruikers/s/([^/.]+)/?$ index.php?nav=gebruikers&sid=$1 [L]
+
+RewriteRule ^producten/c/([^/.]+)/?$ index.php?nav=producten&cid=$1 [L]
+RewriteRule ^producten/d/([^/.]+)/?$ index.php?nav=producten&did=$1 [L]
+RewriteRule ^producten/s/([^/.]+)/?$ index.php?nav=producten&sid=$1 [L]
+
+RewriteRule ^orders/c/([^/.]+)/?$ index.php?nav=orders&cid=$1 [L]
+RewriteRule ^orders/d/([^/.]+)/?$ index.php?nav=orders&did=$1 [L]
+RewriteRule ^orders/s/([^/.]+)/?$ index.php?nav=orders&sid=$1 [L]

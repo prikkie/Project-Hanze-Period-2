@@ -1,0 +1,168 @@
+html {
+    height: 100%;
+}
+
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    height: 55px;
+    background: #D9E7C8;
+}
+
+#menu {
+    margin: auto;
+    width: 100%;
+    min-height: 37px;
+    background: #A7E160;
+}
+
+#winkelmandje {
+    float: right;
+    width: auto;
+    min-width: 200px;
+    min-height: 37px;
+    background: #A7E160;
+}
+
+#center {
+    padding: 20px;
+    width: 70%;
+    min-height: 300px;
+}
+
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+    background: white;
+}
+
+.toevoegen a {
+    display: block;
+
+}
+
+.text {
+    color: #000;
+    text-decoration: none;
+    font: normal 12px Verdana;
+}
+
+.product {
+    background-color: white;
+    color: #4CAF50;
+    width: 15%;
+    height: auto;
+    float: left;
+    padding: 1%;
+    margin: 1%;
+    margin-right: 10%;
+    border-radius: 5%;
+    text-align: center;
+}
+
+.product img {
+    width: auto;
+    height: auto;
+    max-height: 150px;
+    border-radius: 10%;
+}
+
+.product button, .product a {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+    border-radius: 10%;
+    font-size: 23px;
+}
+
+.product .plus {
+    width: 50px;
+}
+
+.product .min {
+    width: 50px;
+}
+
+.product button:hover {
+    opacity: 1;
+}
+
+.shoppingcart_img {
+    width: 50px;
+}
+
+.shoppingcart .overview .item .product_info .quantity_change img.plus {
+    max-width: 50px;
+    float: right;
+}
+
+.shoppingcart .overview .item .product_info .quantity_change img.min {
+    max-width: 50px;
+
+}
+
+.shoppingcart .overview .item img.product_image {
+    max-width: 50px;
+    max-height: 50px;
+    float: left;
+}
+
+.lol {
+    width: 80%;
+    height: auto;
+    float: left;
+    padding: 1%;
+    margin: 1%;
+    margin-right: 10%;
+    border-radius: 5%;
+    text-align: center;
+
+}
+
+.lol .half-left {
+    float: left;
+}
+
+.lol .half-left img.tumbnail {
+    max-width: 50px;
+    max-height: 50px;
+    float: left;
+}
+
+.lol .half-right {
+    float: right;
+    width: 50%;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #66B032;
+    color: white;
+    text-align: center;
+}
+
+#koopknop {
+    background-color: #66B032;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+

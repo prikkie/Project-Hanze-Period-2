@@ -1,3 +1,3 @@
 <?php
 session_destroy();
-header("location: /home");
+header("Location: http://projecthanze.com/home");
