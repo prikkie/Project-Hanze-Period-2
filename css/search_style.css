@@ -1,0 +1,47 @@
+body {
+    font-family: helvetica;
+}
+
+#heading {
+    text-align: center;
+    margin-top: 150px;
+    font-size: 30px;
+    color: blue;
+}
+
+#find {
+    width: 400px;
+    height: 40px;
+    font-size: 17px;
+    padding: 10px;
+}
+
+#search {
+    background-color: #8181F7;
+    height: 40px;
+    color: white;
+    border: none;
+    font-size: 17px;
+}
+
+#search_items {
+    background-color: #F2F2F2;
+    width: 400px;
+    margin: 0px;
+    margin-left: -75px;
+    margin-top: -15px;
+}
+
+#search_items a {
+    color: #585858;
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+#search_items a:hover {
+    background-color: #8181F7;
+    color: white;
+}

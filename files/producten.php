@@ -1,17 +1,52 @@
 <?php
 session_start();
-if (isset($_GET['locatie'])) {
-	$_SESSION['locatie'] = $_GET['locatie'];
-}
+?>
+<link rel="stylesheet" type="text/css" href="/css/search_style.css">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#find").keyup(function () {
+            fetch();
+        });
+    });
 
-$query = "SELECT * FROM products";
+    function fetch() {
+        var val = document.getElementById("find").value;
+        $.ajax({
+            type: 'post',
+            url: '/files/search.php',
+            data: {
+                get_val: val
+            },
+            success: function (response) {
+                document.getElementById("search_items").innerHTML = response;
+                document.getElementById("products").remove();
+            }
+        });
+    }
+</script>
 
-if ($result = $conn->query($query)) {
 
-	foreach ($result as $product) {
+<div id="search_box">
+    <center>
+        <form method='get' action='files/search.php'>
+            <input type="text" name="get_val" id="find" placeholder="Search for products">
+        </form>
+        <!--  <br><br><br><br><br>-->
+        <div id="search_items">
 
-		echo
-			'<div class="product" data-id="' . $product["id"] . '">
+        </div>
+        <div id=products>
+			<?
+
+			$query = "SELECT * FROM products";
+
+			if ($result = $conn->query($query)) {
+
+				foreach ($result as $product) {
+
+					echo
+						'<div class="product" data-id="' . $product["id"] . '">
             
 							<img src="/images/' . $product["afbeelding"] . '" class="product_image"/>
 							<div class="product_name">
@@ -35,10 +70,11 @@ if ($result = $conn->query($query)) {
 
 
 						</div>';
-	}
+				}
 } else {
-	echo 'Geen producten aangeboden!';
+				echo 'Geen producten aangeboden!';
 }
 
 
-?>
+			?>
+        </div>

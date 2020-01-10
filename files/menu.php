@@ -23,15 +23,15 @@
 				?>
                 <a href='http://projecthanze.com/account'>Account Wijzigen</a>
                 <a href='http://projecthanze.com/orders'>Mijn Orders</a>
-                <a href="http://projecthanze.com/logout">logout</a>
+                <a href="http://projecthanze.com/logout">Logout</a>
 
 
             </div>
-            <a href="http://projecthanze.com/Search">Supplier</a>
+
         </div>
 
 
-		<?php
+        <?php
 	} else {
 		?>
         <a href="http://projecthanze.com/signup">Registreren</a>

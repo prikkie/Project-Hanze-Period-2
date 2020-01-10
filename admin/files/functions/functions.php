@@ -55,12 +55,12 @@ function check_login()
 	}
 }
 
-function Punten_delete($id)
+function Suppliers_delete($id)
 {
 	global $conn;
-	$query = "delete from spaaracties where id = $id ";
+	$query = "delete from supplier where id = $id ";
 	$conn->query($query);
-	header("Location: /admin/punten");
+	header("Location: /admin/suppliers");
 
 }
 

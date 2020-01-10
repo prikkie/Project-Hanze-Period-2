@@ -5,8 +5,9 @@ RewriteRule ^users/c/([^/.]+)/?$ index.php?nav=users&cid=$1 [L]
 RewriteRule ^users/d/([^/.]+)/?$ index.php?nav=users&did=$1 [L]
 RewriteRule ^users/s/([^/.]+)/?$ index.php?nav=users&sid=$1 [L]
 
-RewriteRule ^punten/d/([^/.]+)/?$ index.php?nav=punten&did=$1 [L]
-RewriteRule ^punten/s/([^/.]+)/?$ index.php?nav=punten&sid=$1 [L]
+RewriteRule ^suppliers/c/([^/.]+)/?$ index.php?nav=suppliers&cid=$1 [L]
+RewriteRule ^suppliers/d/([^/.]+)/?$ index.php?nav=suppliers&did=$1 [L]
+RewriteRule ^suppliers/s/([^/.]+)/?$ index.php?nav=suppliers&sid=$1 [L]
 
 RewriteRule ^gebruikers/d/([^/.]+)/?$ index.php?nav=gebruikers&did=$1 [L]
 RewriteRule ^gebruikers/s/([^/.]+)/?$ index.php?nav=gebruikers&sid=$1 [L]

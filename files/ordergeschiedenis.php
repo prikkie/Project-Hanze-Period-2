@@ -2,12 +2,12 @@
 if ($_SESSION['logged_in'] == true) {
 	?>
 
-    <table border="1px" width="70%">
-        <tr>
-            <th>Orderregel</th>
-            <th width="15%">Datum</th>
-            <th width="10%">Totaalprijs</th>
-        </tr>
+	<table width="70%">
+		<tr>
+			<th>Orderregel</th>
+			<th width="15%">Datum</th>
+			<th width="10%">Totaalprijs</th>
+		</tr>
 
 		<?php
 

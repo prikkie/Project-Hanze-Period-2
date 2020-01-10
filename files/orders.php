@@ -11,7 +11,7 @@ if (isset($_SESSION['account_id'])) {
             <th width="20%">Datum</th>
             <th>Totaalprijs</th>
 
-            <th>Afgehaald?</th>
+            <th>Afgehandeld?</th>
         </tr>
         <?php
     while ($row = mysqli_fetch_assoc($result)) {

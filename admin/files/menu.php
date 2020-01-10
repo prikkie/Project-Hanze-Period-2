@@ -7,10 +7,11 @@
 	<?php
 	if ($_SESSION['logged_in'] == true) {
 		?>
-        <a href="http://projecthanze.com/admin/producten">Producten</a>
-        <a href="http://projecthanze.com/admin/gebruikers">Gebruikers</a>
-        <a href="http://projecthanze.com/admin/orders">Orders</a>
-        <a href="http://projecthanze.com/admin/logout">Logout</a>
+		<a href="http://projecthanze.com/admin/producten">Producten</a>
+		<a href="http://projecthanze.com/admin/gebruikers">Gebruikers</a>
+		<a href="http://projecthanze.com/admin/orders">Orders</a>
+		<a href="http://projecthanze.com/admin/suppliers">Suppliers</a>
+		<a href="http://projecthanze.com/admin/logout">Logout</a>
 
 		<?php
 	}

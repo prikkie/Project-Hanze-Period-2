@@ -1,24 +1,38 @@
 <section class="section-default">
-    <h2>Product toevoegen</h2>
-    <form method="post">
-        <table>
-            <tr>
-                <td>Leverancier</td>
-                <td><input required type="text" name="leverancier"</td>
-            </tr>
-            <tr>
-                <td>Naam</td>
-                <td><input required type="text" name="naam"</td>
-            </tr>
-            <tr>
-                <td>Prijs</td>
-                <td><input required type="float" name="prijs"></td>
-            </tr>
+	<h2>Product toevoegen</h2>
+	<form method="post">
+		<table>
+			<tr>
+				<td>Leverancier</td>
+				<td><select name="leverancier">
+						<?php
+						$sql = mysqli_query($conn, "SELECT naam FROM supplier");
+						while ($row = $sql->fetch_assoc()) {
 
-            <tr>
-                <td>Omschrijving</td>
-                <td><input type="text" required name="omschrijving"></td>
-            </tr>
+							echo '<option value="' . $row['naam'] . '">' . $row['naam'] . '</option>';
+
+						}
+						?>
+					</select></td>
+				<td>
+					<button>
+						<a href="/admin/nieuw_supplier">+</a>
+					</button>
+				</td>
+			</tr>
+			<tr>
+				<td>Naam</td>
+				<td><input required type="text" name="naam"></td>
+			</tr>
+			<tr>
+				<td>Prijs</td>
+				<td><input required type="float" name="prijs"></td>
+			</tr>
+
+			<tr>
+				<td>Omschrijving</td>
+				<td><input type="text" required name="omschrijving"></td>
+			</tr>
             <tr>
                 <td>Voorraad</td>
                 <td><input type="number" required name="voorraad"><br/></td>

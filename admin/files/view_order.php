@@ -1,12 +1,13 @@
 <form method="post" class="tablecss">
-    <table>
-        <tr>
-            <th width="15%">Image</th>
-            <th width="20%">Naam</th>
-            <th>Aantal</th>
-            <th>Prijs/stuk</th>
-            <th>Totaalprijs</th>
-        </tr>
+	<table>
+		<tr>
+			<th width="15%">Image</th>
+			<th width="20%">Naam</th>
+			<th>Aantal</th>
+			<th>Prijs/stuk</th>
+			<th>Totaalprijs</th>
+			<th>Authorisatie</th>
+		</tr>
 
 		<?php
 		$sid = $_GET['sid'];
@@ -18,6 +19,7 @@
 			$aantal = $row['aantal'];
 			$prijs = $row['prijs'];
 			$product = $row['product'];
+			$authorisatie = $row['toegekend'];
 			$query1 = 'SELECT * FROM products where id =' . $product;
 			$result1 = mysqli_query($conn, $query1);
 			$products = mysqli_fetch_assoc($result1);
@@ -28,13 +30,14 @@
 			$totaaltotaalprijs += $totaalprijs
 
 			?>
-            <tr>
-                <td align="center"><img id="img_product" src=/images/<?php echo $image ?>></td>
-                <td align="center"> <?php echo $naam ?> </td>
-                <td align="center">€ <?php echo $prijs ?> </td>
-                <td align="center"><?php echo $aantal ?> </td>
-                <td align="center">€ <?php echo number_format($totaalprijs, 2, '.', ''); ?> </td>
-            </tr>
+			<tr>
+				<td align="center"><img id="img_product" src=/images/<?php echo $image ?>></td>
+				<td align="center"> <?php echo $naam ?> </td>
+				<td align="center">€ <?php echo $prijs ?> </td>
+				<td align="center"><?php echo $aantal ?> </td>
+				<td align="center">€ <?php echo number_format($totaalprijs, 2, '.', ''); ?> </td>
+				<td align="center"><? echo $authorisatie ?></td>
+			</tr>
 			<?php
 
 		} ?>
@@ -44,16 +47,16 @@
             <td colspan="1" align="center"><?php echo $totaalaantal ?></td>
             <td colspan="1" align="center">&euro; <?php echo number_format($totaaltotaalprijs, 2, ".", '') ?></td>
         </tr>
-        <tr>
-            <td colspan="1" align="center"></td>
-            <td colspan="1" align="center"></td>
-            <td colspan="1" align="center"></td>
-            <td colspan="1" align="center"></td>
-            <td colspan="1" align="center"></td>
-            <td>
-                <button name="afhandelen" value="Afhandelen" type="submit"></button>
-            </td>
-        </tr>
+		<tr>
+			<td colspan="1" align="center"></td>
+			<td colspan="1" align="center"></td>
+			<td colspan="1" align="center"></td>
+			<td colspan="1" align="center"></td>
+			<td colspan="1" align="center"></td>
+			<td>
+				<button name="afhandelen" value="Afhandelen" type="submit">Afhandelen</button>
+			</td>
+		</tr>
 </form>
 <?php
 if (isset($_POST['afhandelen'])) {
