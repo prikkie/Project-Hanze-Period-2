@@ -12,18 +12,18 @@ if (array_key_exists('add', $_GET)) {
 
 function add($product_id)
 {
-
 	return $_SESSION['carts']['products'][$product_id] += 1;
-
 }
 
 function sub($product_id)
 {
-	if ($_SESSION['carts']['products'][$product_id] == 0) {
+	if ($_SESSION['carts']['products'][$product_id] <= 1) {
 		unset($_SESSION['carts']['products'][$product_id]);
-		return $_SESSION['carts']['products'][$product_id];
+		return 0;
 	} else {
+
 		return $_SESSION['carts']['products'][$product_id] -= 1;
+
 	}
 
 }

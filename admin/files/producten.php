@@ -10,24 +10,24 @@ if ($_SESSION['logged_in'] == true) {
 	} else {
 		?>
 
-        <table>
-            <tr>
-                <th>Leverancier</th>
-                <th>Image</th>
-                <th width="10%">Naam</th>
-                <th width="8%">Prijs</th>
-                <th>Omschrijving</th>
-                <th>Voorraad</th>
-                <th></th>
-                <th></th>
-                <th>
-                    <div class="toevoegen" align="right">
-                        <button>
-                            <a href="/admin/nieuw_product">Nieuw product toevoegen</a>
-                        </button>
-                    </div>
-                </th>
-            </tr>
+		<table>
+			<tr>
+				<th>Leverancier</th>
+				<th>Image</th>
+				<th width="10%">Naam</th>
+				<th width="8%">Prijs</th>
+				<th>Omschrijving</th>
+				<th>Voorraad</th>
+
+
+				<th colspan="2">
+					<div class="toevoegen" align="right">
+						<a href="/admin/nieuw_product">
+							<button>Nieuw product toevoegen</button>
+						</a>
+					</div>
+				</th>
+			</tr>
 
 			<?php
 
@@ -48,19 +48,23 @@ if ($_SESSION['logged_in'] == true) {
 					?>
 
 
-                    <tr>
-                        <td><?php echo $leverancier ?></td>
-                        <td><img id="img_product" src=../images/<?php echo $afbeelding ?>></td>
-                        <td align="center"> <?php echo $naam ?> </td>
-                        <td align="center">&euro; <?php echo $prijs ?> </td>
-                        <td align="center"><?php echo $omschrijving ?> </td>
-                        <td align="center"> <?php echo $voorraad ?> </td>
-                        <td align="center"><a target="_self"
-                                              href="producten/d/<?php echo $id ?>">Verwijderen</a>
-                        <td align="center"><a target="_self"
-                                              href="producten/s/<?php echo $id ?>">Edit</a>
-                        <td align="center"></td>
-                    </tr>
+					<tr>
+						<td><?php echo $leverancier ?></td>
+						<td><img id="img_product" src=../images/<?php echo $afbeelding ?>></td>
+						<td align="center"> <?php echo $naam ?> </td>
+						<td align="center">&euro; <?php echo $prijs ?> </td>
+						<td align="center"><?php echo $omschrijving ?> </td>
+						<td align="center"> <?php echo $voorraad ?> </td>
+						<td align="center"><a target="_self"
+						                      href="producten/d/<?php echo $id ?>">
+								<button>Verwijderen</button>
+							</a>
+						<td align="center"><a target="_self"
+						                      href="producten/s/<?php echo $id ?>">
+								<button>Edit</button>
+							</a>
+						<td align="center"></td>
+					</tr>
 
 					<?php
 				}

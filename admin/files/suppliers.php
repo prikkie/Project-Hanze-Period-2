@@ -1,6 +1,6 @@
 <?php
 
-if ($_SESSION['logged_in'] == true) {
+if ($_SESSION['logged_in'] == true && $_SESSION['recht'] == "A") {
 	if (isset($_GET['did'])) {
 		Suppliers_delete($_GET['did']); // verwijderen
 
@@ -11,24 +11,22 @@ if ($_SESSION['logged_in'] == true) {
 	} else {
 		?>
 
-        <table>
-            <tr>
-                <th>Naam</th>
-                <th width="5%">Email</th>
-                <th>Adres</th>
-                <th>Website</th>
-                <th>Telefoon</th>
+		<table>
+			<tr>
+				<th>Naam</th>
+				<th width="5%">Email</th>
+				<th width="10%">Adres</th>
+				<th>Website</th>
+				<th>Telefoon</th>
+				<!--                <th colspan="3"></th>-->
+				<!--                <th></th>-->
+				<th colspan="2">
+					<a href="/admin/nieuw_supplier">
+						<button>Nieuwe Supplier Toevoegen</button>
+					</a>
 
-                <th></th>
-                <th></th>
-                <th>
-                    <div class="toevoegen" align="right">
-                        <button>
-                            <a href="/admin/nieuw_supplier">Nieuwe Supplier Toevoegen</a>
-                        </button>
-                    </div>
-                </th>
-            </tr>
+				</th>
+			</tr>
 
 			<?php
 
@@ -48,19 +46,23 @@ if ($_SESSION['logged_in'] == true) {
 					?>
 
 
-                    <tr>
+					<tr>
 
-                        <td align="center"> <?php echo $naam ?> </td>
-                        <td align="center"> <?php echo $email ?> </td>
-                        <td align="center"> <?php echo $adres ?> </td>
-                        <td align="center"><?php echo $website ?> </td>
-                        <td align="center"> <?php echo $telefoon ?> </td>
-                        <td align="center"><a target="_self"
-                                              href="suppliers/d/<?php echo $id ?>">Verwijderen</a>
-                        <td align="center"><a target="_self"
-                                              href="suppliers/s/<?php echo $id ?>">Edit</a>
-                        <td align="center"></td>
-                    </tr>
+						<td align="center"> <?php echo $naam ?> </td>
+						<td align="center"> <?php echo $email ?> </td>
+						<td align="center"> <?php echo $adres ?> </td>
+						<td align="center"><?php echo $website ?> </td>
+						<td align="center"> <?php echo $telefoon ?> </td>
+						<td align="center"><a target="_self"
+						                      href="suppliers/d/<?php echo $id ?>">
+								<button>Verwijderen</button>
+							</a>
+						<td align="center"><a target="_self"
+						                      href="suppliers/s/<?php echo $id ?>">
+								<button>Edit</button>
+							</a>
+						<td align="center"></td>
+					</tr>
 
 					<?php
 				}
@@ -185,7 +187,3 @@ if ($_SESSION['logged_in'] == true) {
 //			$web = $_POST['web'];
 //		}
 //
-//
-//		$query = "INSERT INTO supplier (naam, adres, telefoon, email, website) VALUES ('$naam','$adres','$telefon','$email','$web')";
-//		$conn->query($query);
-//		header("Location: http://projecthanze.com/admin/nieuw_supplier");

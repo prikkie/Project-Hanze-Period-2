@@ -1,5 +1,5 @@
 <?php
-if (isset($_SESSION['account_id'])) {
+if ($_SESSION['logged_in'] == true && ($_SESSION['recht'] == "A") || $_SESSION["recht"] == "M") {
 	if (isset($_GET['did'])) {
 		echo $_GET['did'];
 		Order_delete($_GET['did']);
@@ -43,13 +43,13 @@ if (isset($_SESSION['account_id'])) {
                     <td align="center">€ <?php echo $totaalprijs ?> </td>
                     <td align="center"> <?php echo $afgehandeld ?> </td>
                     <td align="center"><a target="_self"
-                                          href="orders/d/<?php echo $id ?>">Verwijderen</a>
+                                          href="orders/d/<?php echo $id ?>"><button>Verwijderen</button></a>
                     <td align="center"><a target="_self"
-                                          href="orders/s/<?php echo $id ?>">Inzien</a>
+                                          href="orders/s/<?php echo $id ?>"><button>Inzien</button></a>
                 </tr>
 <?php }
 }
 
 } else {
-	header("Location: http://projecthanze.com/home");
+	header("Location: http://projecthanze.com/admin/home");
 }

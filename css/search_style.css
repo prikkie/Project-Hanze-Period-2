@@ -10,7 +10,7 @@ body {
 }
 
 #find {
-    width: 400px;
+
     height: 40px;
     font-size: 17px;
     padding: 10px;
@@ -26,10 +26,8 @@ body {
 
 #search_items {
     background-color: #F2F2F2;
-    width: 400px;
+
     margin: 0px;
-    margin-left: -75px;
-    margin-top: -15px;
 }
 
 #search_items a {

@@ -8,19 +8,19 @@
 	<?php
 	if ($_SESSION['account_id'] == true) {
 
-		?>
+        ?>
         <div class="dropdown">
 
             <button class="dropbtn">Welkom <?php echo $_SESSION['gebr'] ?>
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-				<?php
-				if ($_SESSION['recht'] == 'A') {
-					echo " <a href='http://projecthanze.com/admin/home'>Admin</a>";
+                <?php
+                if ($_SESSION['recht'] == 'A' || $_SESSION['recht'] == 'M') {
+                    echo " <a href='http://projecthanze.com/admin/home'>Admin</a>";
 
-				}
-				?>
+                }
+                ?>
                 <a href='http://projecthanze.com/account'>Account Wijzigen</a>
                 <a href='http://projecthanze.com/orders'>Mijn Orders</a>
                 <a href="http://projecthanze.com/logout">Logout</a>

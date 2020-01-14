@@ -55,12 +55,11 @@ body {
 .product {
     background-color: white;
     color: #4CAF50;
-    width: 15%;
-    height: auto;
+    width: 250px;
+    height: 275px;
     float: left;
     padding: 1%;
     margin: 1%;
-    margin-right: 10%;
     border-radius: 5%;
     text-align: center;
 }
@@ -87,10 +86,12 @@ body {
 
 .product .plus {
     width: 50px;
+    max-height: 50px;
 }
 
 .product .min {
     width: 50px;
+    height: 50px;
 }
 
 .product button:hover {
@@ -118,7 +119,7 @@ body {
 }
 
 .lol {
-    width: 80%;
+    width: 100% !important;
     height: auto;
     float: left;
     padding: 1%;
@@ -131,6 +132,7 @@ body {
 
 .lol .half-left {
     float: left;
+    width: 50%;
 }
 
 .lol .half-left img.tumbnail {
@@ -165,4 +167,63 @@ body {
     font-size: 16px;
 }
 
+.select {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+    width: 25%;
+}
 
+.select select {
+    font-family: 'Arial';
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+    padding: 12px 30px;
+    outline: 0;
+    border: 1px solid #CCCCCC;
+    border-radius: 0px;
+    background: #ffffff;
+    color: #a3a3a3;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.select select::-ms-expand {
+    display: none;
+}
+
+.select select:hover,
+.select select:focus {
+    color: #000000;
+    background: #ffffff;
+}
+
+.select select:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.select_arrow {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 6px;
+    height: 6px;
+    border: solid #000000;
+    border-width: 0 6px 6px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.select select:hover ~ .select_arrow,
+.select select:focus ~ .select_arrow {
+    border-color: #000000;
+}
+
+.select select:disabled ~ .select_arrow {
+    border-top-color: #000000;
+}

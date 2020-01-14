@@ -24,14 +24,7 @@ echo "</div>";
 ?>
     <div id="body">
 		<?php
-		if ($pagina == "home" || $pagina == "signup" || $pagina == "checkout" || $pagina == "account" || $pagina == "orders" || $pagina == "bedankt") {
-		} else {
 
-			echo "<div id='winkelmandje'>";
-			include 'files/winkelmandView.php';
-
-			echo "</div>";
-		}
 		// Als $pagina niet geinitialiseerd is, gaat hij tergu naar home. Anders geeft hij de $pagina weer.
 		if (empty($pagina)) {
 			header("Location: http://projecthanze.com/home");

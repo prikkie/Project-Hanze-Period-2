@@ -84,7 +84,7 @@ if (isset($_POST['koop'])) {
 						<td align="center"> &euro;' . $product["prijs"] . '</td>
 						<td align="center">
 							' . (isset($_SESSION["carts"]["products"][$product["id"]]) ? $_SESSION["carts"]["products"][$product["id"]] : 1) . '
-						</td>
+						</td> 
 
 					</tr>';
 			}

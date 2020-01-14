@@ -1,52 +1,56 @@
 <?php
 session_start();
 ?>
-<link rel="stylesheet" type="text/css" href="/css/search_style.css">
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#find").keyup(function () {
-            fetch();
-        });
-    });
+<table>
+    <tr>
+        <td>
+            <link rel="stylesheet" type="text/css" href="/css/search_style.css">
+            <script type="text/javascript" src="js/jquery.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $("#find").keyup(function () {
+                        fetch();
+                    });
+                });
 
-    function fetch() {
-        var val = document.getElementById("find").value;
-        $.ajax({
-            type: 'post',
-            url: '/files/search.php',
-            data: {
-                get_val: val
-            },
-            success: function (response) {
-                document.getElementById("search_items").innerHTML = response;
-                document.getElementById("products").remove();
-            }
-        });
-    }
-</script>
+                function fetch() {
+                    var val = document.getElementById("find").value;
+                    $.ajax({
+                        type: 'post',
+                        url: '/files/search.php',
+                        data: {
+                            get_val: val
+                        },
+                        success: function (response) {
+                            document.getElementById("search_items").innerHTML = response;
+                            document.getElementById("products").remove();
+                        }
+                    });
+                }
+            </script>
 
 
-<div id="search_box">
-    <center>
-        <form method='get' action='files/search.php'>
-            <input type="text" name="get_val" id="find" placeholder="Search for products">
-        </form>
-        <!--  <br><br><br><br><br>-->
-        <div id="search_items">
+            <div id="search_box">
+        <td>
+            <form method='get' action='files/search.php'>
+                <input type="text" name="get_val" id="find" placeholder="Search for products">
+            </form>
+            <!--  <br><br><br><br><br>-->
+            <div id="search_items">
 
-        </div>
-        <div id=products>
-			<?
+            </div>
 
-			$query = "SELECT * FROM products";
+            <div id=products>
+				<?
 
-			if ($result = $conn->query($query)) {
+				$query = "SELECT * FROM products";
 
-				foreach ($result as $product) {
+				if ($result = $conn->query($query)) {
 
-					echo
-						'<div class="product" data-id="' . $product["id"] . '">
+					foreach ($result as $product) {
+
+						echo
+							'<div class="product" data-id="' . $product["id"] . '">
             
 							<img src="/images/' . $product["afbeelding"] . '" class="product_image"/>
 							<div class="product_name">
@@ -70,11 +74,24 @@ session_start();
 
 
 						</div>';
+					}
+				} else {
+					echo 'Geen producten aangeboden!';
 				}
-} else {
-				echo 'Geen producten aangeboden!';
-}
 
 
+				?>
+            </div>
+        <td valign="top">
+			<?
+			echo "<div id='winkelmandje'>";
+			include 'files/winkelmandView.php';
+
+			echo "</div>";
 			?>
-        </div>
+            <a href="/aanvraag_product">
+                <button>Product aanvragen!</button>
+            </a>
+        </td>
+    </tr>
+</table>

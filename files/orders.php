@@ -36,7 +36,7 @@ if (isset($_SESSION['account_id'])) {
                     <td align="center">€ <?php echo $totaalprijs ?> </td>
                     <td align="center"> <?php echo $afgehandeld ?> </td>
                     <td align="center"><a target="_self"
-                                          href="orders/s/<?php echo $id ?>">Inzien</a></td>
+                                          href="orders/s/<?php echo $id ?>"><button>Inzien</button></a></td>
                 </tr>
 <?php }
 }

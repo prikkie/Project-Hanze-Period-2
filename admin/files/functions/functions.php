@@ -15,7 +15,7 @@ function login($gebruikersnaam, $wachtwoord)
 	global $conn;
 	$user_ip = (sha1($_SERVER['REMOTE_ADDR']));
 	$session_id = rand(1000, 1000000);
-	$query = "SELECT * FROM users WHERE gebruikersnaam = '" . $gebruikersnaam . "' AND wachtwoord = '" . $wachtwoord . "' AND recht = 'A'";
+	$query = "SELECT * FROM users WHERE gebruikersnaam = '" . $gebruikersnaam . "' AND wachtwoord = '" . $wachtwoord . "' AND (recht = 'A' OR recht = 'M')";
 
 	mysqli_prepare($conn, $query);
 	$result = mysqli_query($conn, $query) or die ("FOUT: " . mysqli_error($conn));
@@ -45,7 +45,7 @@ function login($gebruikersnaam, $wachtwoord)
 function check_login()
 {
 	if (isset($_SESSION['gebr'], $_SESSION['session_id'], $_SESSION['session_ip'], $_SESSION['recht'])) {
-		if ($_SESSION['recht'] == 'a') {
+		if ($_SESSION['recht'] == 'A') {
 			return true;
 		} else {
 			return false;
@@ -91,6 +91,20 @@ function Order_delete($id)
 	$conn->query($query);
 	header("Location: /admin/orders");
 
+}
+
+function afgewezen($id)
+{
+	global $conn;
+	$qu = "UPDATE orderregels SET toegekend='" . 'afgewezen' . "' WHERE id= '" . $id . "' ";
+	$re = mysqli_query($conn, $qu);
+}
+
+function toegekend($id)
+{
+	global $conn;
+	$qu = "UPDATE orderregels SET toegekend='" . 'toegekend' . "' WHERE id= '" . $id . "' ";
+	$re = mysqli_query($conn, $qu);
 }
 
 

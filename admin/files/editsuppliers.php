@@ -1,5 +1,5 @@
 <?php
-if (isset($sid)) {
+if (isset($sid) && $_SESSION['logged_in'] == true && $_SESSION['recht'] == "A") {
 	global $sid;
 
 	$query = "SELECT naam,adres,telefoon,email,website FROM  supplier where id = $sid";

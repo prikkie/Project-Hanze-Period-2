@@ -1,7 +1,7 @@
 <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
 
 <div class="topnav" id="myTopnav">
-    <a href="home" class="active">Home</a>
+	<a href="http://projecthanze.com/admin/home" class="active">Home</a>
 
 
 	<?php
