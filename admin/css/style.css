@@ -11,6 +11,12 @@ body {
     background: #FFFAFA;
 }
 
+#percentage {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
 #menu {
     margin: auto;
     width: 100%;
@@ -42,4 +48,22 @@ body {
     color: #000;
     text-decoration: none;
     font: normal 12px Verdana;
+}
+
+td.budgetred {
+    background-color: red;
+    padding: 5px;
+    margin: 4px;
+}
+
+td.budgetyellow {
+    background-color: orange;
+    padding: 5px;
+    margin: 4px;
+}
+
+td.budgetgreen {
+    background-color: green;
+    padding: 5px;
+    margin: 4px;
 }

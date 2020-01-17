@@ -94,7 +94,7 @@ if (isset($_POST['koop'])) {
 				<tr>
 					<td colspan="3">Totaal:</td>
 					<td colspan="1" align="center">&euro;' . $price . '</td>
-					<td colspan="1" align="center">' . $quantity . '</td>
+					<td colspan="1" align="center">' . $quantity . ' items</td>
 				</tr>
 				';
 			$_SESSION['totaal'] = $price;

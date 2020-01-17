@@ -1,15 +1,15 @@
 <?
-if ($_SESSION['logged_in'] == true && $_SESSION['recht'] == "A") {
+if ($_SESSION['logged_in'] == true && $_SESSION['recht'] == "A" || ['recht'] == "M") {
 	?>
-    <section class="section-default">
-        <h2>Gebruiker toevoegen</h2>
-        <form action="" method="post">
-            <table>
-                <tr>
-                    <td>Gebruikersnaam</td>
-                    <td><input type="text" required name="gebruikersnaam"</td>
-                </tr>
-                <tr>
+	<section class="section-default">
+		<h2>Gebruiker toevoegen</h2>
+		<form action="" method="post">
+			<table>
+				<tr>
+					<td>Gebruikersnaam</td>
+					<td><input type="text" required name="gebruikersnaam"</td>
+				</tr>
+				<tr>
                     <td>Naam</td>
                     <td><input type="text" required name="naam"</td>
                 </tr>

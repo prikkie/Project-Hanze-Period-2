@@ -7,7 +7,14 @@ if ($_SESSION['logged_in'] == true && ($_SESSION['recht'] == "A") || $_SESSION["
 	if (isset($_GET['sid'])) {
 		include 'view_order.php';
 	} else {
-    $query = 'SELECT * FROM orders';
+	    $recht = $_SESSION['recht'];
+	    $department = $_SESSION['department'];
+	    if($recht == "M"){
+	        $query = "SELECT o.klant, o.datum, o.totaalprijs, o.afgehandeld, u.department FROM orders o JOIN users u on u.id = o.klant WHERE u.department = '$department'";
+	    }
+	    if($recht == "A"){
+            $query = 'SELECT * FROM orders';
+        }
     $result = mysqli_query($conn,$query);
     ?>
     <table>

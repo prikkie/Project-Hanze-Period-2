@@ -16,6 +16,17 @@ RewriteRule ^producten/c/([^/.]+)/?$ index.php?nav=producten&cid=$1 [L]
 RewriteRule ^producten/d/([^/.]+)/?$ index.php?nav=producten&did=$1 [L]
 RewriteRule ^producten/s/([^/.]+)/?$ index.php?nav=producten&sid=$1 [L]
 
+RewriteRule ^budget/s/([^/.]+)/?$ index.php?nav=budget&sid=$1 [L]
+
 RewriteRule ^orders/c/([^/.]+)/?$ index.php?nav=orders&cid=$1 [L]
 RewriteRule ^orders/d/([^/.]+)/?$ index.php?nav=orders&did=$1 [L]
 RewriteRule ^orders/s/([^/.]+)/?$ index.php?nav=orders&sid=$1 [L]
+
+
+RewriteRule ^view_order/y/([^/.]+)/?$ index.php?nav=view_order&yid=$1 [L]
+RewriteRule ^view_order/n/([^/.]+)/?$ index.php?nav=view_order&nid=$2 [L]
+
+
+
+
+

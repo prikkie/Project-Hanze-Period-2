@@ -22,17 +22,17 @@ include 'files/menu.php';
 echo "</div>";
 
 ?>
-    <div id="body">
+	<div id="body">
 		<?php
 
-		// Als $pagina niet geinitialiseerd is, gaat hij tergu naar home. Anders geeft hij de $pagina weer.
+		// Als $pagina niet geinitialiseerd is, gaat hij terug naar home. Anders geeft hij de $pagina weer.
 		if (empty($pagina)) {
 			header("Location: http://projecthanze.com/home");
 		} else {
 			include("files/" . $pagina . ".php");
 		}
 		?>
-    </div>
+	</div>
 <?php
 
 

@@ -1,5 +1,5 @@
 <?
-if ($_SESSION['logged_in'] == true && $_SESSION['recht'] == "A") {
+if ($_SESSION['logged_in'] == true && $_SESSION['recht'] == "A" || ['recht'] == "M") {
 	?>
 	<section class="section-default">
 		<h2>Supplier toevoegen</h2>

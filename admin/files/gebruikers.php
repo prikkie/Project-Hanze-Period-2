@@ -1,5 +1,5 @@
 <?php
-if ($_SESSION['logged_in'] == true && $_SESSION['recht'] == "A") {
+if ($_SESSION['logged_in'] == true && $_SESSION['recht'] == "A" || $_SESSION['recht'] == "M") {
 	if (isset($_GET['did'])) {
 		Gebruikers_delete($_GET['did']);
 	}
@@ -9,24 +9,30 @@ if ($_SESSION['logged_in'] == true && $_SESSION['recht'] == "A") {
 		?>
 
 
-        <table>
+		<table>
             <tr>
                 <th>Gebruikersnaam</th>
                 <th width="5%">Naam</th>
                 <th>Adres</th>
                 <th>Email</th>
                 <th>Geslacht</th>
-                <th>Afdeling</th>
-                <th>Manager</th>
-                <!--                <th></th>-->
-                <!--                <th></th>-->
-                <th colspan="2"><a href="/admin/nieuw_gebruiker">
-                        <button>Gebruiker toevoegen!</button>
-                    </a></th>
+	            <th>Afdeling</th>
+	            <th>Manager</th>
+	            <!--                <th></th>-->
+	            <!--                <th></th>-->
+	            <th colspan="2"><a href="/admin/nieuw_gebruiker">
+			            <button>Gebruiker toevoegen!</button>
+		            </a></th>
             </tr>
 
 			<?php
-			$query = "SELECT * FROM users";
+			if ($_SESSION['recht'] == "M") {
+				$department = $_SESSION['department'];
+				$query = "SELECT * FROM users WHERE department ='$department'";
+			}
+			if ($_SESSION['recht'] == "A") {
+				$query = "SELECT * FROM users";
+			}
 			if ($result = $conn->query($query)) {
 				while ($row = $result->fetch_assoc()) {
 					$id = $row["id"];

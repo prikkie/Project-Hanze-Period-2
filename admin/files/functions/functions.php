@@ -10,48 +10,41 @@ function do_alert($msg)
 }
 
 
-function login($gebruikersnaam, $wachtwoord)
+function loginAdmin($gebruikersnaam, $password)
 {
+
 	global $conn;
 	$user_ip = (sha1($_SERVER['REMOTE_ADDR']));
 	$session_id = rand(1000, 1000000);
-	$query = "SELECT * FROM users WHERE gebruikersnaam = '" . $gebruikersnaam . "' AND wachtwoord = '" . $wachtwoord . "' AND (recht = 'A' OR recht = 'M')";
+	$query = "SELECT * FROM users WHERE gebruikersnaam = '" . $gebruikersnaam . "'  AND (recht = 'A' OR recht = 'M')";
 
 	mysqli_prepare($conn, $query);
 	$result = mysqli_query($conn, $query) or die ("FOUT: " . mysqli_error($conn));
-
 
 	$total = mysqli_num_rows($result);
 
 	if ($total == 1) {
 		foreach ($result as $row) {
-			$_SESSION['recht'] = $row['recht'];
-			$_SESSION['account_id'] = $row['id'];
-			$_SESSION['naam'] = $row['naam'];
+			$pwdcheck = password_verify($password, $row['wachtwoord']);
+			if ($pwdcheck == false) {
+				header("location: home?error=wrongpwd");
+				exit();
+			} else {
+				$_SESSION['recht'] = $row['recht'];
+				$_SESSION['account_id'] = $row['id'];
+				$_SESSION['naam'] = $row['naam'];
+				$_SESSION['department'] = $row['department'];
+				$_SESSION['session_ip'] = $user_ip;
+				$_SESSION['session_id'] = $session_id;
+				$_SESSION['gebr'] = $gebruikersnaam;
+				$_SESSION['logged_in'] = true;
+			}
 		}
-		$_SESSION['session_ip'] = $user_ip;
-		$_SESSION['session_id'] = $session_id;
-		$_SESSION['gebr'] = $gebruikersnaam;
-		$_SESSION['logged_in'] = true;
 
 	} else {
 
 		do_alert("M8 u got ur credentials wrong!");
 
-	}
-}
-
-
-function check_login()
-{
-	if (isset($_SESSION['gebr'], $_SESSION['session_id'], $_SESSION['session_ip'], $_SESSION['recht'])) {
-		if ($_SESSION['recht'] == 'A') {
-			return true;
-		} else {
-			return false;
-		}
-	} else {
-		return false;
 	}
 }
 

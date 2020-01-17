@@ -1,6 +1,5 @@
 <?php
-
-if (isset($_POST['ww']) && isset($_POST['gebr'])) {
-	login($_POST['ww'], $_POST['gebr']);
+if (isset($_POST['wachtwoord']) && isset($_POST['gebruiker'])) {
+	loginAdmin($_POST['wachtwoord'], $_POST['gebruiker']);
 }
-header("Location: http://projecthanze.com/admin/home");
+header("Location: /admin/home");

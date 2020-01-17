@@ -1,5 +1,5 @@
 <?php
-if (isset($_GET['sid']) && $_SESSION['logged_in'] == true && $_SESSION['recht'] == "A") {
+if (isset($_GET['sid']) && $_SESSION['logged_in'] == true && $_SESSION['recht'] == "A" || ['recht'] == "M") {
 	$sid = $_GET['sid'];
 
 	$query = "SELECT gebruikersnaam,naam,adres,email,wachtwoord,recht,geslacht,department,manager FROM  users where id = $sid";
