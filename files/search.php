@@ -5,7 +5,7 @@ include 'functions/db_connect.php';
 if (isset($_REQUEST['get_val'])) {
 
 	$term = $_REQUEST['get_val'];
-	$query = "select * from products where naam LIKE '%" . $term . "%' LIMIT 5";
+	$query = "select * from products where naam LIKE '%" . $term . "%' ";
 
 	$result = mysqli_query($conn, $query) or die ("FOUT: " . mysqli_error());
 

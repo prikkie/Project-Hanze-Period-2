@@ -4,14 +4,14 @@ if (isset($_SESSION['account_id'])) {
 		include 'view_order.php';
 	} else {
     $query = 'SELECT * FROM orders where klant ='. $_SESSION['account_id'];
-    $result = mysqli_query($conn,$query);
+    $result = $conn->query($query);
+    if (mysqli_num_rows($result) > 0) {
     ?>
     <table>
         <tr>
             <th width="20%">Datum</th>
             <th>Totaalprijs</th>
-
-            <th>Afgehandeld?</th>
+            <th>Status</th>
         </tr>
         <?php
     while ($row = mysqli_fetch_assoc($result)) {
@@ -24,10 +24,15 @@ if (isset($_SESSION['account_id'])) {
                 $datum = $row["datum"];
                 $totaalprijs = $row["totaalprijs"];
                 $afgehandeld = $row["afgehandeld"];
+                $status = $row["status"];
                 if($afgehandeld == 0){
-                    $afgehandeld = "Nee";
+                    $afgehandeld = "Niet behandeld";
                 }else{
-                    $afgehandeld = "Ja";
+                    if($status == "bezorgd"){
+                        $afgehandeld = "Bestelling bezorgd";
+                    }else{
+                        $afgehandeld = "Behandeld door manager";
+                    }
                 }
 
 ?>
@@ -37,9 +42,15 @@ if (isset($_SESSION['account_id'])) {
                     <td align="center"> <?php echo $afgehandeld ?> </td>
                     <td align="center"><a target="_self"
                                           href="orders/s/<?php echo $id ?>"><button>Inzien</button></a></td>
+
                 </tr>
+
+
 <?php }
+}else{
+        echo "Geen orders";
 }
+    }
 
 } else {
 	header("Location: http://projecthanze.com/home");

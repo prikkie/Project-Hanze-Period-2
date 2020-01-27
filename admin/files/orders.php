@@ -10,10 +10,10 @@ if ($_SESSION['logged_in'] == true && ($_SESSION['recht'] == "A") || $_SESSION["
 	    $recht = $_SESSION['recht'];
 	    $department = $_SESSION['department'];
 	    if($recht == "M"){
-	        $query = "SELECT o.klant, o.datum, o.totaalprijs, o.afgehandeld, u.department FROM orders o JOIN users u on u.id = o.klant WHERE u.department = '$department'";
+	        $query = "SELECT o.klant, o.datum, o.totaalprijs, o.afgehandeld, u.department FROM orders o JOIN users u on u.id = o.klant WHERE u.department = '$department' ORDER BY afgehandeld ASC ";
 	    }
 	    if($recht == "A"){
-            $query = 'SELECT * FROM orders';
+            $query = 'SELECT * FROM orders ORDER BY afgehandeld ASC ';
         }
     $result = mysqli_query($conn,$query);
     ?>

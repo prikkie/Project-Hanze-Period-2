@@ -9,20 +9,20 @@ if ($_SESSION['logged_in'] == true && $_SESSION['recht'] == "A" || $_SESSION['re
 		?>
 
 
-		<table>
+        <table>
             <tr>
                 <th>Gebruikersnaam</th>
                 <th width="5%">Naam</th>
                 <th>Adres</th>
                 <th>Email</th>
                 <th>Geslacht</th>
-	            <th>Afdeling</th>
-	            <th>Manager</th>
-	            <!--                <th></th>-->
-	            <!--                <th></th>-->
-	            <th colspan="2"><a href="/admin/nieuw_gebruiker">
-			            <button>Gebruiker toevoegen!</button>
-		            </a></th>
+                <th>Afdeling</th>
+                <th>Recht</th>
+                <!--                <th></th>-->
+                <!--                <th></th>-->
+                <th colspan="2"><a href="/admin/nieuw_gebruiker">
+                        <button>Gebruiker toevoegen!</button>
+                    </a></th>
             </tr>
 
 			<?php
@@ -42,7 +42,14 @@ if ($_SESSION['logged_in'] == true && $_SESSION['recht'] == "A" || $_SESSION['re
 					$email = $row["email"];
 					$geslacht = $row["geslacht"];
 					$afdeling = $row["department"];
-					$manager = $row["manager"];
+					$recht = $row["recht"];
+					if ($recht == "A") {
+						$recht = "Admin";
+					} elseif ($recht == "M") {
+						$recht = "Manager";
+					} else {
+						$recht = "Gebruiker";
+					}
 					?>
 
 
@@ -53,11 +60,7 @@ if ($_SESSION['logged_in'] == true && $_SESSION['recht'] == "A" || $_SESSION['re
                         <td align="center"> <?php echo $email ?> </td>
                         <td align="center"> <?php echo $geslacht ?> </td>
                         <td align="center"> <?php echo $afdeling ?> </td>
-                        <td align="center"> <?php if ($manager == 1) {
-								echo "Ja";
-							} elseif ($manager == 0) {
-								echo "Nee";
-							} ?> </td>
+                        <td align="center"> <?php echo $recht ?> </td>
                         <td align="center"><a target="_self"
                                               href="gebruikers/d/<?php echo $id ?>">
                                 <button>Verwijderen</button>

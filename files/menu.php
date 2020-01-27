@@ -7,8 +7,9 @@
 	if ($_SESSION['account_id'] == true) {
 
 		?>
+		<a href="http://projecthanze.com/producten">Producten</a>
 		<div class="dropdown">
-			<a href="http://projecthanze.com/producten">Producten</a>
+
 			<button class="dropbtn">Welkom <?php echo $_SESSION['gebr'] ?>
 				<i class="fa fa-caret-down"></i>
 			</button>

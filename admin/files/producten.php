@@ -17,7 +17,6 @@ if ($_SESSION['logged_in'] == true) {
 				<th width="10%">Naam</th>
 				<th width="8%">Prijs</th>
 				<th>Omschrijving</th>
-				<th>Voorraad</th>
 
 
 				<th colspan="2">
@@ -39,7 +38,6 @@ if ($_SESSION['logged_in'] == true) {
 					$id = $row["id"];
 					$naam = $row["naam"];
 					$prijs = $row["prijs"];
-					$voorraad = $row["voorraad"];
 					$afbeelding = $row["afbeelding"];
 					$omschrijving = $row["omschrijving"];
 					$leverancier = $row["leverancier"];
@@ -54,7 +52,6 @@ if ($_SESSION['logged_in'] == true) {
 						<td align="center"> <?php echo $naam ?> </td>
 						<td align="center">&euro; <?php echo $prijs ?> </td>
 						<td align="center"><?php echo $omschrijving ?> </td>
-						<td align="center"> <?php echo $voorraad ?> </td>
 						<td align="center"><a target="_self"
 						                      href="producten/d/<?php echo $id ?>">
 								<button>Verwijderen</button>

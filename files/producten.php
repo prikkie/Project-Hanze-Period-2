@@ -1,56 +1,57 @@
 <?php
 session_start();
-?>
-<table>
-    <tr>
-        <td>
-            <link rel="stylesheet" type="text/css" href="/css/search_style.css">
-            <script type="text/javascript" src="js/jquery.js"></script>
-            <script type="text/javascript">
-                $(document).ready(function () {
-                    $("#find").keyup(function () {
-                        fetch();
+if ($_SESSION['logged_in'] == true) {
+    ?>
+    <table>
+        <tr>
+            <td>
+                <link rel="stylesheet" type="text/css" href="/css/search_style.css">
+                <script type="text/javascript" src="js/jquery.js"></script>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        $("#find").keyup(function () {
+                            fetch();
+                        });
                     });
-                });
 
-                function fetch() {
-                    var val = document.getElementById("find").value;
-                    $.ajax({
-                        type: 'post',
-                        url: '/files/search.php',
-                        data: {
-                            get_val: val
-                        },
-                        success: function (response) {
-                            document.getElementById("search_items").innerHTML = response;
-                            document.getElementById("products").remove();
-                        }
-                    });
-                }
-            </script>
+                    function fetch() {
+                        var val = document.getElementById("find").value;
+                        $.ajax({
+                            type: 'post',
+                            url: '/files/search.php',
+                            data: {
+                                get_val: val
+                            },
+                            success: function (response) {
+                                document.getElementById("search_items").innerHTML = response;
+                                document.getElementById("products").remove();
+                            }
+                        });
+                    }
+                </script>
 
 
-            <div id="search_box">
-        <td>
-            <form method='get' action='files/search.php'>
-                <input type="text" name="get_val" id="find" placeholder="Search for products">
-            </form>
-            <!--  <br><br><br><br><br>-->
-            <div id="search_items">
+                <div id="search_box">
+            <td>
+                <form method='get' action='files/search.php'>
+                    <input type="text" name="get_val" id="find" placeholder="Search for products">
+                </form>
+                <!--  <br><br><br><br><br>-->
+                <div id="search_items">
 
-            </div>
+                </div>
 
-            <div id=products>
-				<?
+                <div id=products>
+                    <?
 
-				$query = "SELECT * FROM products";
+                    $query = "SELECT * FROM products";
 
-				if ($result = $conn->query($query)) {
+                    if ($result = $conn->query($query)) {
 
-					foreach ($result as $product) {
+                        foreach ($result as $product) {
 
-						echo
-							'<div class="product" data-id="' . $product["id"] . '">
+                            echo
+                                '<div class="product" data-id="' . $product["id"] . '">
             
 							<img src="/images/' . $product["afbeelding"] . '" class="product_image"/>
 							<div class="product_name">
@@ -74,24 +75,28 @@ session_start();
 
 
 						</div>';
-					}
-				} else {
-					echo 'Geen producten aangeboden!';
-				}
+                        }
+                    } else {
+                        echo 'Geen producten aangeboden!';
+                    }
 
 
-				?>
-            </div>
-        <td valign="top">
-			<?
-			echo "<div id='winkelmandje'>";
-			include 'files/winkelmandView.php';
+                    ?>
+                </div>
+            <td valign="top">
+                <?
+                echo "<div id='winkelmandje'>";
+                include 'files/winkelmandView.php';
 
-			echo "</div>";
-			?>
-            <a href="/aanvraag_product">
-                <button>Product aanvragen!</button>
-            </a>
-        </td>
-    </tr>
-</table>
+                echo "</div>";
+                ?>
+                <a href="/aanvraag_product">
+                    <button>Product aanvragen!</button>
+                </a>
+            </td>
+        </tr>
+    </table>
+    <?php
+} else {
+    header("Location: http://projecthanze.com/home");
+}

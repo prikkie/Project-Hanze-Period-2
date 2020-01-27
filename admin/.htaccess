@@ -11,6 +11,7 @@ RewriteRule ^suppliers/s/([^/.]+)/?$ index.php?nav=suppliers&sid=$1 [L]
 
 RewriteRule ^gebruikers/d/([^/.]+)/?$ index.php?nav=gebruikers&did=$1 [L]
 RewriteRule ^gebruikers/s/([^/.]+)/?$ index.php?nav=gebruikers&sid=$1 [L]
+RewriteRule ^gebruikers/c/([^/.]+)/?$ index.php?nav=gebruikers&sid=$1 [L]
 
 RewriteRule ^producten/c/([^/.]+)/?$ index.php?nav=producten&cid=$1 [L]
 RewriteRule ^producten/d/([^/.]+)/?$ index.php?nav=producten&did=$1 [L]
@@ -23,8 +24,10 @@ RewriteRule ^orders/d/([^/.]+)/?$ index.php?nav=orders&did=$1 [L]
 RewriteRule ^orders/s/([^/.]+)/?$ index.php?nav=orders&sid=$1 [L]
 
 
-RewriteRule ^view_order/y/([^/.]+)/?$ index.php?nav=view_order&yid=$1 [L]
-RewriteRule ^view_order/n/([^/.]+)/?$ index.php?nav=view_order&nid=$2 [L]
+RewriteRule ^auth/y/([^/.]+)/?$ index.php?nav=auth&yid=$1 [L]
+RewriteRule ^auth/n/([^/.]+)/?$ index.php?nav=auth&nid=$1 [L]
+RewriteRule ^auth/b/([^/.]+)/?$ index.php?nav=auth&bid=$1 [L]
+RewriteRule ^auth/a/([^/.]+)/?$ index.php?nav=auth&aid=$1 [L]
 
 
 

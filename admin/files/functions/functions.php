@@ -89,14 +89,14 @@ function Order_delete($id)
 function afgewezen($id)
 {
 	global $conn;
-	$qu = "UPDATE orderregels SET toegekend='" . 'afgewezen' . "' WHERE id= '" . $id . "' ";
+	$qu = "UPDATE orderregels SET status='" . 'afgewezen' . "' WHERE id= '" . $id . "' ";
 	$re = mysqli_query($conn, $qu);
 }
 
 function toegekend($id)
 {
 	global $conn;
-	$qu = "UPDATE orderregels SET toegekend='" . 'toegekend' . "' WHERE id= '" . $id . "' ";
+	$qu = "UPDATE orderregels SET status='" . 'toegekend' . "' WHERE id= '" . $id . "' ";
 	$re = mysqli_query($conn, $qu);
 }
 

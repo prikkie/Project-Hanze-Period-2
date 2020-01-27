@@ -1,12 +1,7 @@
 <?php
-if ($_SESSION['logged_in'] == true) {
-	if (isset($_GET['did'])) {
-		Product_delete($_GET['did']); // verwijderen
-
-	}
+if ($_SESSION['logged_in'] == true && ($_SESSION['recht'] == "A") || ($_SESSION["recht"] == "M") && $_SESSION['department'] == "Finance") {
 	if (isset($_GET['sid'])) {
-		$sid = $_GET['sid'];  //wijzigen
-		include 'editproduct.php';
+		include 'view_request.php';
 	} else {
 		?>
 
@@ -18,14 +13,7 @@ if ($_SESSION['logged_in'] == true) {
 				<th width="8%">Link</th>
 				<th>Omschrijving</th>
 				<th>Motivatie</th>
-
-				<th colspan="2">
-					<div class="toevoegen" align="right">
-						<a href="/admin/nieuw_request">
-							<button>Nieuw request toevoegen</button>
-						</a>
-					</div>
-				</th>
+				<th>auth</th>
 			</tr>
 
 			<?php
@@ -41,33 +29,34 @@ if ($_SESSION['logged_in'] == true) {
 					$link = $row["link"];
 					$omschrijving = $row["omschrijving"];
 					$motivatie = $row["motivatie"];
+					$auth = $row["auth"];
 
 
 					?>
 
 
 					<tr>
-						<td align="center"><?php echo $id ?></td>
+						<td align="center"><?php echo $pid ?></td>
 						<td align="center"> <?php echo $naam ?> </td>
 						<td align="center"><?php echo $department ?> </td>
 						<td align="center"><?php echo $link ?> </td>
 						<td align="center"> <?php echo $omschrijving ?> </td>
 						<td align="center"><?php echo $motivatie ?></td>
-						<td align="center"><a target="_self"
-						                      href="producten/d/<?php echo $id ?>">
-								<button>Verwijderen</button>
-							</a>
-						<td align="center"><a target="_self"
-						                      href="producten/s/<?php echo $id ?>">
-								<button>Edit</button>
-							</a>
+						<td align="center"><?php echo $auth ?></td>
+						<?php if ($auth != "goedgekeurd" && $status != "afgewezen") { ?>
+							<td><a target="_self"
+							       href="/admin/auth/b/<?php echo $id; ?>">
+									<button>Betalen</button>
+								</a></td> <?php } ?>
+
 						<td align="center"></td>
 					</tr>
 
 					<?php
 
-					$result->free();
+
 				}
+				$result->free();
 			}
 			?>
 		</table>

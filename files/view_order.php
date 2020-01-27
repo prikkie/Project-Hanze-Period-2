@@ -5,7 +5,8 @@
 		<th>Aantal</th>
 		<th>Prijs/stuk</th>
 		<th>Totaalprijs</th>
-		<th>Authorisatie</th>
+		<th>Status</th>
+
 	</tr>
 
 	<?php
@@ -15,10 +16,11 @@
 	$query = 'SELECT * FROM orderregels where order_id =' . $sid;
 	$result = mysqli_query($conn, $query);
 	while ($row = mysqli_fetch_assoc($result)) {
+		$id = $row['id'];
 		$aantal = $row['aantal'];
 		$prijs = $row['prijs'];
 		$product = $row['product'];
-		$authorisatie = $row['toegekend'];
+		$authorisatie = $row['status'];
 		$query1 = 'SELECT * FROM products where id =' . $product;
 		$result1 = mysqli_query($conn, $query1);
 		$products = mysqli_fetch_assoc($result1);
@@ -36,6 +38,10 @@
 			<td align="center">€<?php echo $prijs ?> </td>
 			<td align="center">€ <?php echo number_format($totaalprijs, 2, '.', ''); ?> </td>
 			<td align="center"><? echo $authorisatie ?></td>
+			<td align="center"><a target="_self"
+			                      href="/klacht/p/<?php echo $id; ?>">
+					<button>Klacht</button>
+				</a></td>
 		</tr>
 		<?php
 
