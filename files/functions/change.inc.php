@@ -1,7 +1,7 @@
 <?php
-session_start();
-if (isset($_POST['wijzig'])) {
-	require 'db_connect.php';
+echo "niet gezet";
+if (isset($_POST['wijzigen'])) {
+	echo "wel gezet";
 
 	$id = $_SESSION['account_id'];
 	$user = $_POST['gebruikersnaam'];
@@ -12,9 +12,9 @@ if (isset($_POST['wijzig'])) {
 
 	$hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 
-	$query = "UPDATE users SET gebruikersnaam='$user',naam='$naam',adres='$adres',email='$email', wachtwoord='$hashedPwd' WHERE id='$id'";
-	$query_run = mysqli_query($conn, $query);
-	$query_run;
+//	$query = "UPDATE users SET gebruikersnaam='$user',naam='$naam',adres='$adres',email='$email', wachtwoord='$hashedPwd' WHERE id='$id'";
+//	$query_run = mysqli_query($conn, $query);
 
-	header("Location: http://projecthanze.com/account");
+
+	//header("Location: http://projecthanze.com/account");
 }

@@ -13,13 +13,13 @@ if (isset($_SESSION['account_id'])) {
 ?>
 
 
-<div class="inpu" align="center">
-    <h1>Account wijzigen</h1>
-    <form action="http://projecthanze.com/files/functions/change.inc.php" method="post">
-        <table>
-            <tr>
-                <td>Gebruikersnaam</td>
-                <td width="85%"><input type="text" value="<?php echo $user['gebruikersnaam'] ?>" name="gebruikersnaam">
+<div align="center">
+	<h1>Account wijzigen</h1>
+	<form action="../files/functions/change1.inc.php" method="post">
+		<table>
+			<tr>
+				<td>Gebruikersnaam</td>
+				<td width="85%"><input type="text" value="<?php echo $user['gebruikersnaam'] ?>" name="gebruikersnaam">
                 </td>
             </tr>
             <tr>
@@ -34,16 +34,16 @@ if (isset($_SESSION['account_id'])) {
                 <td>Email</td>
                 <td><input type="text" name="email" value="<?php echo $user['email'] ?>"></td>
             </tr>
-            <tr>
-                <td>Wachtwoord</td>
-                <td><input type="text" name="wachtwoord" value=""></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <button type="submit" class="signupbtn" name="wijzig">Wijzigen</button>
-                </td>
-            </tr>
-        </table>
-    </form>
+			<tr>
+				<td>Wachtwoord</td>
+				<td><input type="text" name="wachtwoord" value=""></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<button><input type="submit" name="wijzigen" hidden> Wijzigen</button>
+				</td>
+			</tr>
+		</table>
+	</form>
 </div>

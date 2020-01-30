@@ -4,20 +4,28 @@ if ($_SESSION['logged_in'] == true && $_SESSION['recht'] == "A" || $_SESSION['re
 	?>
 
 
-	<table>
+	<table width="100%">
 		<tr>
-			<th width="15%">Image</th>
-			<th width="20%">Naam</th>
+			<th>Image</th>
+			<th>Naam</th>
 			<th>Product</th>
-			<th>Aantal</th>
 			<th>Prijs/stuk</th>
+			<th>Aantal</th>
 			<th>Totaalprijs</th>
 			<th>Status</th>
+			<th>Reden aanvraag</th>
+			<th>Reden afkeuring</th>
+
 
 		</tr>
 
 		<?php
 		$sid = $_GET['sid'];
+		$query = 'SELECT * FROM orders where id =' . $sid;
+		$result = mysqli_query($conn, $query);
+		$row = mysqli_fetch_assoc($result);
+		$redenklant = $row['reden'];
+
 		$totaaltotaalprijs = 0;
 		$totaalaantal = 0;
 		$hoeveelAfgehandeld = 0;
@@ -29,6 +37,7 @@ if ($_SESSION['logged_in'] == true && $_SESSION['recht'] == "A" || $_SESSION['re
 
 			$id = $row['id'];
 			$aantal = $row['aantal'];
+			$reden = $row['reden'];
 			$prijs = $row['prijs'];
 			$product = $row['product'];
 			$authorisatie = $row['status'];
@@ -63,12 +72,22 @@ if ($_SESSION['logged_in'] == true && $_SESSION['recht'] == "A" || $_SESSION['re
 				<td align="center"><?php echo $aantal ?> </td>
 				<td align="center">€ <?php echo number_format($totaalprijs, 2, '.', ''); ?> </td>
 				<td align="center"><?php echo $authorisatie; ?></td>
+				<td align="center"> <?php echo $redenklant ?> </td>
+				<?php if ($authorisatie != "afgewezen" && $authorisatie != "toegewezen") { ?>
+					<td align="center">
+						<form method="post" action="/admin/auth/n/<?php echo $id; ?>"><input type="text" size="60"
+						                                                                     name="reden">
+					</td>
+				<?php } else { ?>
+					<td align="center"><?php echo $reden ?> </td>
+				<?php } ?>
+
 				<?php if ($authorisatie == "authorisatie nodig") {
 					$id = $row['id']; ?>
-					<td><a target="_self"
-					       href="/admin/auth/n/<?php echo $id; ?>">
-							<button>Nee</button>
-						</a>
+					<td>
+						<button>Nee</button>
+
+						</form>
 					</td>
 					<td><a target="_self"
 					       href="/admin/auth/y/<?php echo $id; ?>">

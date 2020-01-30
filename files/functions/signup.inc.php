@@ -2,14 +2,14 @@
 if (isset($_POST['signup-submit'])) {
 	require 'db_connect.php';
 
-	$username = $_POST['uid'];
-	$name = $_POST['name'];
-	$adres = $_POST['adr'];
-	$email = $_POST['mail'];
-	$password = $_POST['pwd'];
-	$passwordRepeat = $_POST['pwd-repeat'];
-	$geslacht = $_POST['geslacht'];
-	$afdeling = $_POST['department'];
+	$username = test_input($_POST['uid']);
+	$name = test_input($_POST['name']);
+	$adres = test_input($_POST['adr']);
+	$email = test_input($_POST['mail']);
+	$password = test_input($_POST['pwd']);
+	$passwordRepeat = test_input($_POST['pwd-repeat']);
+	$geslacht = test_input($_POST['geslacht']);
+	$afdeling = test_input($_POST['department']);
 
 	if (empty($username) || empty($email) || empty($password) || empty($passwordRepeat)) {
 		header("location: /signup?error=emptyfields&uid=" . $username . "&mail=" . $email);

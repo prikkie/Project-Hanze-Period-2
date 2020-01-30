@@ -1,15 +1,15 @@
 <?
 if ($_SESSION['logged_in'] == true && $_SESSION['recht'] == "A" || ['recht'] == "M") {
 	?>
-	<section class="section-default">
-		<h2>Gebruiker toevoegen</h2>
-		<form action="" method="post">
-			<table>
-				<tr>
-					<td>Gebruikersnaam</td>
-					<td><input type="text" required name="gebruikersnaam"</td>
-				</tr>
-				<tr>
+    <section class="section-default">
+        <h2>Gebruiker toevoegen</h2>
+        <form action="" method="post">
+            <table>
+                <tr>
+                    <td>Gebruikersnaam</td>
+                    <td><input type="text" required name="gebruikersnaam"</td>
+                </tr>
+                <tr>
                     <td>Naam</td>
                     <td><input type="text" required name="naam"</td>
                 </tr>
@@ -49,31 +49,31 @@ if ($_SESSION['logged_in'] == true && $_SESSION['recht'] == "A" || ['recht'] == 
                 </tr>
                 <tr>
                     <td>Manager</td>
-	                <td><select name="manager">
-			                <option>Nee</option>
-			                <option>Ja</option>
-		                </select>
-	                </td>
+                    <td><select name="manager">
+                            <option>Nee</option>
+                            <option>Ja</option>
+                        </select>
+                    </td>
                 </tr>
-				<tr>
-					<td>Recht</td>
-					<td>
-						<select name="recht">
-							<option name="A">Admin</option>
-							<option name="k">Gebruiker</option>
-							<option name="M">Manager</option>
-						</select></td>
-				</tr>
+                <tr>
+                    <td>Recht</td>
+                    <td>
+                        <select name="recht">
+                            <option name="A">Admin</option>
+                            <option name="k">Gebruiker</option>
+                            <option name="M">Manager</option>
+                        </select></td>
+                </tr>
 
-				<tr>
-					<td></td>
-					<td>
-						<button type="submit" required name="toevoegen">Toevoegen!</button>
-					</td>
-				</tr>
-			</table>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="submit" required name="toevoegen">Toevoegen!</button>
+                    </td>
+                </tr>
+            </table>
         </form>
-	</section>
+    </section>
 	<?php
 	$gebruikersnaam = $_POST['gebruikersnaam'];
 	$naam = $_POST['naam'];

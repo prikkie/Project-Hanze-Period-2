@@ -1,6 +1,6 @@
 <?php
 
-if ($_SESSION['logged_in'] == true && $_SESSION['recht'] == "A" || ['recht'] == "M") {
+if ($_SESSION['logged_in'] == true && $_SESSION['recht'] == "A" || $_SESSION['recht'] == "M") {
 	if (isset($_GET['did'])) {
 		Suppliers_delete($_GET['did']); // verwijderen
 

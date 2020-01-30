@@ -44,28 +44,29 @@ if (isset($_SESSION['account_id'])) {
 }
 ?>
 
-<div>
-    <h2 align="center">Klacht indienen</h2>
-    <table>
-        <form method="post" action="">
-            <tr>
-                <td><h4>Omschrijving klacht?</h4></td>
-                <td><textarea type="text" name="inhoud" rows="8" cols="60"></textarea></td>
-            </tr>
-            <tr>
+<div align="center">
+	<h2>Klacht indienen</h2>
+	<table>
+		<form method="post" action="">
+			<tr>
+				<td><h4>Omschrijving klacht?</h4></td>
+				<td><textarea type="text" name="inhoud" rows="8" cols="60"></textarea></td>
+			</tr>
+			<tr>
 
-                <td><h4>Bied uw oplossing:</h4></td>
-                <td><textarea type="text" name="oplossing" rows="8" cols="60"></textarea></td>
-            </tr>
-            <tr>
-                <td>
-                    <button type="submit" name="submit">Sturen</button>
-                </td>
-            </tr>
+				<td><h4>Bied uw oplossing:</h4></td>
+				<td><textarea type="text" name="oplossing" rows="8" cols="60"></textarea></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<button type="submit" name="submit">Sturen</button>
+				</td>
+			</tr>
 
 
-        </form>
-    </table>
+		</form>
+	</table>
 </div>
 
 

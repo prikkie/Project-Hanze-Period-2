@@ -12,21 +12,21 @@
                     <input type="password" name="pwd-repeat" placeholder="Wachtwoord herhalen" style="width:50%"><br/>
                     <div class="select">
                         <select name="geslacht">
-                            <option value="man">Man</option>
-                            <option value="vrouw">Vrouw</option>
+                            <option value="man">Geslacht: Man</option>
+                            <option value="vrouw">Geslacht: Vrouw</option>
                         </select>
                     </div>
                     <div class="select">
                         <select name="department">
-							<?php
+				            <?php
 							$sql = mysqli_query($conn, "SELECT id, naam FROM departments");
 							while ($row = $sql->fetch_assoc()) {
-								echo '<option value="' . $row['naam'] . '">' . $row['naam'] . '</option>';
+								echo '<option value="' . $row['naam'] . '">Department: ' . $row['naam'] . '</option>';
 							}
 							?>
                         </select>
-                    </div>
-                    <button type="submit" class="signupbtn" name="signup-submit">Registreren</button>
+
+                        <button type="submit" class="signupbtn" name="signup-submit">Registreren</button>
                 </form>
             </section>
         </div>

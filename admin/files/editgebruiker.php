@@ -36,20 +36,20 @@ if (isset($_GET['sid']) && $_SESSION['logged_in'] == true && $_SESSION['recht'] 
 						</tr>
 						<tr>
 							<td>Geslacht</td>
-                            <td>
-                                <select name="geslacht">
-                                    <option type="text" <?php if ($geslacht == "Man") {
+							<td>
+								<select name="geslacht">
+									<option type="text" <?php if ($geslacht == "Man") {
 										echo "selected";
 									} else {
-                                    } ?> name="man">Man
-                                    </option>
-	                                <option type="text" <?php if ($geslacht == "Vrouw") {
-		                                echo "selected";
-	                                } else {
-	                                } ?> name="vrouw">Vrouw
-	                                </option>
-                                </select>
-                            </td>
+									} ?> name="man">Man
+									</option>
+									<option type="text" <?php if ($geslacht == "Vrouw") {
+										echo "selected";
+									} else {
+									} ?> name="vrouw">Vrouw
+									</option>
+								</select>
+							</td>
 						</tr>
 						<tr>
 							<td>E-mail</td>

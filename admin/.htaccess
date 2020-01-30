@@ -29,6 +29,15 @@ RewriteRule ^auth/n/([^/.]+)/?$ index.php?nav=auth&nid=$1 [L]
 RewriteRule ^auth/b/([^/.]+)/?$ index.php?nav=auth&bid=$1 [L]
 RewriteRule ^auth/a/([^/.]+)/?$ index.php?nav=auth&aid=$1 [L]
 
+RewriteRule ^auth/d/([^/.]+)/?$ index.php?nav=auth&did=$1 [L]
+RewriteRule ^auth/l/([^/.]+)/?$ index.php?nav=auth&lid=$1 [L]
+
+RewriteRule ^requests/s/([^/.]+)/?$ index.php?nav=requests&sid=$1 [L]
+RewriteRule ^requests/r/([^/.]+)/?$ index.php?nav=requests&rid=$1 [L]
+
+
+
+
 
 
 

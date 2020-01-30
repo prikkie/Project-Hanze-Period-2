@@ -18,6 +18,9 @@
 			if ($_SESSION["department"] == "Finance" || $_SESSION["recht"] == "A") {
 				echo '	<a href="http://projecthanze.com/admin/financieel">Financieel</a>';
 			}
+			if ($_SESSION["department"] == "Purchase" || $_SESSION["recht"] == "A") {
+				echo '	<a href="http://projecthanze.com/admin/klacht_overzicht">Klachten</a>';
+			}
 			if ($_SESSION["department"] == "Logistic" || $_SESSION["recht"] == "A") {
 				echo '	<a href="http://projecthanze.com/admin/logistiek">Logistiek</a>';
 			}

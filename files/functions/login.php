@@ -2,6 +2,14 @@
 if (!isset($_SESSION)) {
 	session_start();
 }
+function test_input($data)
+{
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data);
+	return $data;
+}
+
 function login($gebuikersnaam, $password)
 {
 	global $conn;
@@ -28,6 +36,7 @@ function login($gebuikersnaam, $password)
 				$_SESSION['session_ip'] = $user_ip;
 				$_SESSION['session_id'] = $session_id;
 				$_SESSION['gebr'] = $gebuikersnaam;
+				$_SESSION['email'] = $row['email'];
 				$_SESSION['logged_in'] = true;
 			}
 		}

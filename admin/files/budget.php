@@ -7,19 +7,19 @@ if ($_SESSION['logged_in'] == true && ($_SESSION['recht'] == "A") || $_SESSION["
          $department = $_SESSION['department'];
 
 	    if($recht == "A"){
-            $query = "SELECT d.id, d.naam, d.budget, sum(ors.aantal * ors.prijs) as totaal FROM orders o JOIN users u on u.id = o.klant JOIN departments d on d.naam = u.department JOIN orderregels ors on ors.order_id = o.id WHERE u.department = 'IT' and ors.status = 'betaald'
+            $query = "SELECT d.id, d.naam, d.budget, sum(ors.aantal * ors.prijs) as totaal FROM orders o JOIN users u on u.id = o.klant JOIN departments d on d.naam = u.department JOIN orderregels ors on ors.order_id = o.id WHERE u.department = 'IT' and (ors.status = 'besteld' or ors.status = 'betaald')
                       UNION
-                      SELECT d.id, d.naam, d.budget, sum(ors.aantal * ors.prijs) as totaal FROM orders o JOIN users u on u.id = o.klant JOIN departments d on d.naam = u.department JOIN orderregels ors on ors.order_id = o.id WHERE u.department = 'Finance' and ors.status = 'betaald'
+                      SELECT d.id, d.naam, d.budget, sum(ors.aantal * ors.prijs) as totaal FROM orders o JOIN users u on u.id = o.klant JOIN departments d on d.naam = u.department JOIN orderregels ors on ors.order_id = o.id WHERE u.department = 'Finance' and (ors.status = 'besteld' or ors.status = 'betaald')
                       UNION
-                      SELECT d.id, d.naam, d.budget, sum(ors.aantal * ors.prijs) as totaal FROM orders o JOIN users u on u.id = o.klant JOIN departments d on d.naam = u.department JOIN orderregels ors on ors.order_id = o.id WHERE u.department = 'HR' and ors.status = 'betaald'
+                      SELECT d.id, d.naam, d.budget, sum(ors.aantal * ors.prijs) as totaal FROM orders o JOIN users u on u.id = o.klant JOIN departments d on d.naam = u.department JOIN orderregels ors on ors.order_id = o.id WHERE u.department = 'HR' and (ors.status = 'besteld' or ors.status = 'betaald')
                       UNION
-                      SELECT d.id, d.naam, d.budget, sum(ors.aantal * ors.prijs) as totaal FROM orders o JOIN users u on u.id = o.klant JOIN departments d on d.naam = u.department JOIN orderregels ors on ors.order_id = o.id WHERE u.department = 'Logistic' and ors.status = 'betaald'
+                      SELECT d.id, d.naam, d.budget, sum(ors.aantal * ors.prijs) as totaal FROM orders o JOIN users u on u.id = o.klant JOIN departments d on d.naam = u.department JOIN orderregels ors on ors.order_id = o.id WHERE u.department = 'Logistic' and (ors.status = 'besteld' or ors.status = 'betaald')
                       UNION
-                      SELECT d.id, d.naam, d.budget, sum(ors.aantal * ors.prijs) as totaal FROM orders o JOIN users u on u.id = o.klant JOIN departments d on d.naam = u.department JOIN orderregels ors on ors.order_id = o.id WHERE u.department = 'Purchase' and ors.status = 'betaald'
+                      SELECT d.id, d.naam, d.budget, sum(ors.aantal * ors.prijs) as totaal FROM orders o JOIN users u on u.id = o.klant JOIN departments d on d.naam = u.department JOIN orderregels ors on ors.order_id = o.id WHERE u.department = 'Purchase' and (ors.status = 'besteld' or ors.status = 'betaald')
                       ORDER BY totaal";
         }
 	    if($recht == "M"){
-	       $query = "SELECT d.id, d.naam, d.budget, sum(o.totaalprijs) as totaal FROM orders o JOIN users u on u.id = o.klant JOIN departments d on d.naam = u.department WHERE u.department ='$department'";
+	       $query = "SELECT d.id, d.naam, d.budget, sum(o.totaalprijs) as totaal FROM orders o JOIN users u on u.id = o.klant JOIN departments d on d.naam = u.department WHERE d.naam ='$department'";
 	    }
     $result = mysqli_query($conn,$query);
     ?>

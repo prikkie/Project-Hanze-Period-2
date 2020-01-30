@@ -4,9 +4,12 @@ if (!isset($_SESSION)) {
 	session_start();
 }
 
-function do_alert($msg)
+function test_input($data)
 {
-	echo '<script type="text/javascript">alert("' . $msg . '"); </script>';
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data);
+	return $data;
 }
 
 

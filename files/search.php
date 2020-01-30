@@ -15,7 +15,7 @@ if (isset($_REQUEST['get_val'])) {
 		echo
 			'<div class="product" data-id="' . $row["id"] . '">
             
-							<img src="/images/' . $row["afbeelding"] . '" class="product_image"/>
+							<img src="/images/' . $row["afbeelding"] . '" class="product_image" width="150px" height="150px"/>
 							<div class="product_name">
 								<b>
 								

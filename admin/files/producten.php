@@ -9,7 +9,6 @@ if ($_SESSION['logged_in'] == true) {
 		include 'editproduct.php';
 	} else {
 		?>
-
 		<table>
 			<tr>
 				<th>Leverancier</th>

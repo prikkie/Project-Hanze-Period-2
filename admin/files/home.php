@@ -1,5 +1,5 @@
 <?php
-if ($_SESSION['logged_in'] == true) {
+if ($_SESSION['logged_in'] == true && ($_SESSION['recht'] == 'A' || $_SESSION['recht'] == 'M')) {
 	echo "Welkom op ons admin portaal!";
 
 } else {
